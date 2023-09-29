@@ -22,8 +22,8 @@ function onFormSubmit(e) {
 
 function onFormInput(e) {
   const data = {
-    email: refs.emailInput.value || '',
-    message: refs.messageInput.value || '',
+    email: refs.emailInput.value,
+    message: refs.messageInput.value,
   };
 
   saveToLS(data);
@@ -33,9 +33,8 @@ function onPageLoad() {
   const formData = loadFromLS(STORAGE_KEY);
 
   if (formData) {
-    console.log(refs.emailInput.textContent);
-    refs.emailInput.value = formData.email;
-    refs.messageInput.value = formData.message;
+    refs.emailInput.value = formData.email || '';
+    refs.messageInput.value = formData.message || '';
   }
 }
 
