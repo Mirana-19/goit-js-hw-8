@@ -15,7 +15,12 @@ onPageLoad();
 function onFormSubmit(e) {
   e.preventDefault();
 
-  console.log(localStorage.getItem(STORAGE_KEY));
+  if (refs.emailInput.value === '' || refs.messageInput.value === '') {
+    return alert('Please fill empty fields');
+  }
+
+  console.log(loadFromLS(STORAGE_KEY));
+
   e.target.reset();
   localStorage.removeItem(STORAGE_KEY);
 }
